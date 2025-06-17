@@ -10,6 +10,14 @@ require('./Models/db')
 
 const PORT = process.env.PORT || 8080
 
+const allowedOrigins = ['https://my-frontend.vercel.app'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
+
 app.get('/ping', (req, res) => {
     res.send('PONG')
 } )
